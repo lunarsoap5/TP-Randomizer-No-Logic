@@ -43,8 +43,6 @@ namespace mod
 		areStoryItemsRandomized = 0;
 		isDesertAccessEnabled = 0;
 		isAllPortalsUnlocked = 0;
-		areDungeonShuffled = 0;
-		hasDungeonBeenShuffled = 0;
 
 		//dungeon fixes
 		hasFTBeenBeaten = 0;

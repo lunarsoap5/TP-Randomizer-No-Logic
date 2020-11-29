@@ -210,47 +210,6 @@ namespace mod::game_patch
 				gameInfo.scratchPad.allAreaNodes.Forest_Temple.dungeon.ooccooGotten = 0b0;
 			}
 		}
-
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x2])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x2] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x2] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x2] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x2] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x2] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
-		}
-
 	}
 
 	void fixGMState()
@@ -265,46 +224,6 @@ namespace mod::game_patch
 				gameInfo.scratchPad.allAreaNodes.Goron_Mines.dungeon.ooccooGotten = 0b0;
 			}
 		}
-
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x1])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x1] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x1] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x1] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x1] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x1] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
-		}
 	}
 
 	void fixLBTState()
@@ -317,45 +236,6 @@ namespace mod::game_patch
 			{
 				gameInfo.scratchPad.allAreaNodes.Lakebed_Temple.dungeon.ooccooGotten = 0b0;
 			}
-		}
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x0])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x0] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x0] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x0] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x0] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x0] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
 		}
 	}
 
@@ -370,46 +250,6 @@ namespace mod::game_patch
 				gameInfo.scratchPad.allAreaNodes.Arbiters_Grounds.dungeon.ooccooGotten = 0b0;
 			}
 		}
-
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x7])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x7] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x7] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x7] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x7] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x7] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
-		}
 	}
 
 	void fixSPRState()
@@ -422,46 +262,6 @@ namespace mod::game_patch
 			{
 				gameInfo.scratchPad.allAreaNodes.Snowpeak_Ruins.dungeon.ooccooGotten = 0b0;
 			}
-		}
-
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x8])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x8] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x8] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x8] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x8] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x8] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
 		}
 	}
 
@@ -476,46 +276,6 @@ namespace mod::game_patch
 				gameInfo.scratchPad.allAreaNodes.Temple_of_Time.dungeon.ooccooGotten = 0b0;
 			}
 		}
-
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x3])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x3] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x3] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x3] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x3] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x3] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
-		}
 	}
 
 	void fixCiTSState()
@@ -528,132 +288,6 @@ namespace mod::game_patch
 		if (Singleton::getInstance()->hasCiTSOoccoo == 0)
 		{
 			gameInfo.scratchPad.allAreaNodes.City_in_the_Sky.dungeon.ooccooGotten = 0b0;
-		}
-
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x4])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x4] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x4] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x4] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x4] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x4] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
-		}
-	}
-
-	void fixPoTState()
-	{
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x5])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x5] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x5] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x5] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x5] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x5] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
-		}
-	}
-
-	void fixHCState()
-	{
-		if (Singleton::getInstance()->areDungeonShuffled == 1)
-		{
-			if (Singleton::getInstance()->hasDungeonBeenShuffled == 1)
-			{
-				return;
-			}
-			strncpy(gameInfo.nextStageVars.nextStage, stage::dungeonShuffleStages[(array::shuffleDungeonArray[0x6])], sizeof(gameInfo.nextStageVars.nextStage) - 1);
-			if (array::shuffleDungeonArray[0x6] == 0)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x6] == 1)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x1;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x6] == 2)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x16;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			if (array::shuffleDungeonArray[0x6] == 4)
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x1;
-			}
-			if (array::shuffleDungeonArray[0x6] == 6)
-			{
-				gameInfo.nextStageVars.nextRoom = 0xB;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			else
-			{
-				gameInfo.nextStageVars.nextRoom = 0x0;
-				gameInfo.nextStageVars.nextSpawnPoint = 0x0;
-			}
-			Singleton::getInstance()->hasDungeonBeenShuffled = 1;
 		}
 	}
 

@@ -39,8 +39,6 @@ namespace mod
 		u8 startWithCrystal;
 		u8 isDesertAccessEnabled;
 		u8 isAllPortalsUnlocked;
-		u8 areDungeonShuffled;
-		u8 hasDungeonBeenShuffled;
 		
 		//dungeon flags
 		u8 hasFTBeenBeaten;

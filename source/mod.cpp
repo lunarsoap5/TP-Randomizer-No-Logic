@@ -269,7 +269,6 @@ namespace mod
 		hudConsole->addOption(page, "No Desrt Req?", &Singleton::getInstance()->isDesertAccessEnabled, 0x1);
 		hudConsole->addOption(page, "Story Items?", &Singleton::getInstance()->areStoryItemsRandomized, 0x1);
 		hudConsole->addOption(page, "All Portals?", &Singleton::getInstance()->isAllPortalsUnlocked, 0x1);
-		hudConsole->addOption(page, "Dungeon Shuff?", &Singleton::getInstance()->areDungeonShuffled, 0x1);
 				
 		hudConsole->addWatch(page, "CurrentEventID:", &gameInfo.eventSystem.currentEventID, 'x', WatchInterpretation::_u8);
 		hudConsole->addWatch(page, "NextEventID:", &gameInfo.eventSystem.nextEventID, 'x', WatchInterpretation::_u8);
@@ -503,8 +502,6 @@ namespace mod
 		eventListener->addLoadEvent(stage::allStages[Stage_Snowpeak_Ruins], 0xFF, 0xFF, 0xFF, 0xFF, game_patch::fixSPRState, event::LoadEventAccuracy::Stage_Room_Spawn);
 		eventListener->addLoadEvent(stage::allStages[Stage_Temple_of_Time], 0xFF, 0xFF, 0xFF, 0xFF, game_patch::fixToTState, event::LoadEventAccuracy::Stage_Room_Spawn);
 		eventListener->addLoadEvent(stage::allStages[Stage_City_in_the_Sky], 0xFF, 0xFF, 0xFF, 0xFF, game_patch::fixCiTSState, event::LoadEventAccuracy::Stage_Room_Spawn);
-		eventListener->addLoadEvent(stage::allStages[Stage_Palace_of_Twilight], 0xFF, 0xFF, 0xFF, 0xFF, game_patch::fixPoTState, event::LoadEventAccuracy::Stage_Room_Spawn);
-		eventListener->addLoadEvent(stage::allStages[Stage_Hyrule_Castle], 0xFF, 0xFF, 0xFF, 0xFF, game_patch::fixHCState, event::LoadEventAccuracy::Stage_Room_Spawn);
 
 		//set dungeon and boss flags
 		eventListener->addLoadEvent(stage::allStages[Stage_Faron_Woods], 0xFF, 0xFF, 0xFF, 0xFF, game_patch::setFTDungeonFlag, event::LoadEventAccuracy::Stage_Room_Spawn);
@@ -881,12 +878,6 @@ namespace mod
 		if (!customSeed)
 		{
 			tools::getRandom(0);
-		}
-
-		
-		if (!chestRandomizer->isStageDungeon())
-		{
-			Singleton::getInstance()->hasDungeonBeenShuffled = 0;
 		}
 
 
