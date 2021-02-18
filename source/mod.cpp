@@ -15,6 +15,7 @@
 #include "HUDConsole.h"
 #include "items.h"
 #include "singleton.h"
+#include "musicRando.h"
 
 #include <tp/f_op_scene_req.h>
 #include <tp/m_Do_controller_pad.h>
@@ -289,6 +290,10 @@ namespace mod
 		hudConsole->addOption(page, "LTN Ot Red:", &outerRed, 0xFF);
 		hudConsole->addOption(page, "LTN Ot Green:", &outerGreen, 0xFF);
 		hudConsole->addOption(page, "LTN Ot Blue:", &outerBlue, 0xFF);
+
+		//Bgm Options
+        page = hudConsole->addPage("BGM");
+        hudConsole->addOption(page, "BGM Rando: ",&musicrando::musicRandoEnabled,0x1);
 		
 		//local area
 		/*page = hudConsole->addPage("Local Area 1");		
@@ -896,6 +901,7 @@ namespace mod
                 customSeed = true;
                 tools::randomSeed = *global::seedInSaveFile;
                 chestRandomizer->generate();
+				musicrando::initMusicRando();
             }
 		}
 
@@ -953,6 +959,7 @@ namespace mod
                 // manually in the save data
                 *global::seedInSaveFile = tools::randomSeed;
 				chestRandomizer->generate();
+				musicrando::initMusicRando();
 			}
 
 			// Parse inputs of this frame
