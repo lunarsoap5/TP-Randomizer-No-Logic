@@ -46,6 +46,7 @@ namespace mod
 	ChestRandomizer* global::chestRandoPtr = nullptr;
 	event::EventListener* global::eventListenerPtr = nullptr;
 	mod::HUDConsole* global::hudConsolePtr = nullptr;
+	uint64_t* global::seedInSaveFile = nullptr;
 	int num_frames = 120;
 	int frame_counter = 0;
 
@@ -81,6 +82,9 @@ namespace mod
 
 		// Init rando
 		tools::randomSeed = 0x9e3779b97f4a7c15;
+
+		global::seedInSaveFile = reinterpret_cast<u64*>(&tp::d_com_inf_game::dComIfG_gameInfo.scratchPad.eponaName[9]);
+
 		randoEnabled = 1;
 		truePause = 1;
 		inputBuffering = 0;
@@ -90,7 +94,7 @@ namespace mod
 		strcpy(sysConsolePtr->consoleLine[21].line, "+/- Value: A/B/X/Y  Console  :  R + Z");
 		strcpy(sysConsolePtr->consoleLine[22].line, " Generate: R + Start (auto on new file)");
 		strcpy(sysConsolePtr->consoleLine[23].line, "Bring up the console to use commands");
-		strcpy(sysConsolePtr->consoleLine[24].line, "rando.tpspeed.run | Twitter: @ztprandomizer");
+		strcpy(sysConsolePtr->consoleLine[24].line, "rando.tpspeed.run | Twitter: @tprandomizer");
 
 		u8 page = 0;
 
@@ -124,7 +128,7 @@ namespace mod
 		page = hudConsole->addPage("Debug Info");
 		
 		
-		
+		hudConsole->addWatch(page, "InSave: ", global::seedInSaveFile, 'x', WatchInterpretation::_u64);
 		hudConsole->addWatch(page, "Function:", &lastItemFunc, 's', WatchInterpretation::_str);
 		hudConsole->addWatch(page, "  Source:", &chestRandomizer->lastSourceInfo, 's', WatchInterpretation::_str);
 		hudConsole->addWatch(page, "    Dest:", &chestRandomizer->lastDestInfo, 's', WatchInterpretation::_str);
@@ -885,6 +889,14 @@ namespace mod
 		if (isLoading)
 		{
 			eventListener->checkLoadEvents();
+
+			// Check if there's a random seed in the current save data
+            if (*global::seedInSaveFile > 0 && *global::seedInSaveFile != tools::randomSeed)
+            {
+                customSeed = true;
+                tools::randomSeed = *global::seedInSaveFile;
+                chestRandomizer->generate();
+            }
 		}
 
 		if (controller::checkForButtonInputSingleFrame((controller::PadInputs::Button_R | controller::PadInputs::Button_Z)))
@@ -929,6 +941,17 @@ namespace mod
 		{
 			if (controller::checkForButtonInputSingleFrame((controller::PadInputs::Button_R | controller::PadInputs::Button_Start)))
 			{
+				 // Check if we have a seed sitting in our save file somewhere and if so, apply this automatically (unless custom
+                // seed is turned on)
+
+                if (!customSeed && *global::seedInSaveFile > 0)
+                {
+                    tools::randomSeed = *global::seedInSaveFile;
+                }
+
+                // In case this person hasn't started the run through the load event earlier we still have to store this seed
+                // manually in the save data
+                *global::seedInSaveFile = tools::randomSeed;
 				chestRandomizer->generate();
 			}
 
