@@ -9,8 +9,8 @@ endif
 
 include $(DEVKITPPC)/gamecube_rules
 
-export ELF2REL	:=	C:/Users/Justin/Downloads/GC-Randomizer-vbn5983/0.16.1-nologic/bin/elf2rel.exe
-export GCIPACK	:=	python3 C:/Users/Justin/Downloads/GC-Randomizer-vbn5983/0.16.1-nologic/bin/gcipack.py
+export ELF2REL	:=	elf2rel
+export GCIPACK	:=	gcipack
 
 ifeq ($(VERSION),)
 all: us jp eu
