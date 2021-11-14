@@ -1816,6 +1816,33 @@ namespace mod
         return false;
     }
 
+    bool ChestRandomizer::isKeyRegion()
+    {
+        u32 totalKeyRegions = sizeof( stage::keyRegions ) / sizeof( stage::keyRegions[0] );
+        for ( u32 i = 0; i < totalKeyRegions; i++ )
+        {
+            if ( tp::d_a_alink::checkStageName( stage::keyRegions[i] ) )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    u8 ChestRandomizer::getStageID()
+	{
+		u32 loopCount = sizeof(stage::keyRegions) / sizeof(stage::keyRegions[0]);
+		for (u8 i = 0; i < loopCount; i++)
+		{
+			if (tp::d_a_alink::checkStageName(stage::keyRegions[i]))
+			{
+				return i;
+			}
+		}  
+		// Didn't find the current stage for some reason
+		return -1;
+	}
+
     bool ChestRandomizer::isStageInterior()
     {
         u32 totalInteriorStages = sizeof( stage::interiorStages ) / sizeof( stage::interiorStages[0] );

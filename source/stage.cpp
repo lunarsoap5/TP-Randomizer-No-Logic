@@ -131,4 +131,18 @@ namespace mod::stage
                                        allStages[Stage_Zant_Main],
                                        allStages[Stage_Stallord],
                                        allStages[Stage_Blizzeta] };
+
+    const char* keyRegions[11] {
+        allStages[Stage_Lakebed_Temple],
+        allStages[Stage_Goron_Mines],
+        allStages[Stage_Forest_Temple],
+        allStages[Stage_Temple_of_Time],
+        allStages[Stage_City_in_the_Sky],
+        allStages[Stage_Palace_of_Twilight],
+        allStages[Stage_Hyrule_Castle],
+        allStages[Stage_Arbiters_Grounds],
+        allStages[Stage_Snowpeak_Ruins],
+        allStages[Stage_Faron_Woods],
+        allStages[Stage_Bublin_Camp]
+    };
 }     // namespace mod::stage

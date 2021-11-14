@@ -970,8 +970,7 @@ namespace mod::game_patch
         tp::d_com_inf_game::GameInfo* gameInfoPtr = &gameInfo;
 
         // If the key is for the current area, then update the local node
-        // Only check the first 4 characters, since those are what determine each area
-        if ( strncmp( gameInfoPtr->currentStage, stage, 6 ) == 0 )
+        if ( strcmp( gameInfoPtr->currentStage, stage) == 0 )
         {
             switch ( type )
             {

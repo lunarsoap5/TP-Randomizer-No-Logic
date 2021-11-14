@@ -54,6 +54,17 @@ namespace mod
 
     int num_frames = 120;
     int frame_counter = 0;
+    u8 forestKeyCount = 0;
+    u8 minesKeyCount = 0;
+    u8 lakebedKeyCount = 0;
+    u8 arbitersKeyCount = 0;
+    u8 snowpeakKeyCount = 0;
+    u8 totKeyCount = 0;
+    u8 cityKeyCount = 0;
+    u8 palaceKeyCount = 0;
+    u8 castleKeyCount = 0;
+    u8 faronKeyCount = 0;
+    u8 bulblinKeyCount = 0;
 
     tp::d_stage::Actr EponaActr = { "Horse", 0x00000F0D, 0.f, 0.f, 0.f, 0, -180, 0, 0xFFFF };
 
@@ -280,6 +291,20 @@ hudConsole->addWatch(page, "throw:", &throwResult, 'x', WatchInterpretation::_u1
         hudConsole->addOption( page, "BGM Rando: ", &musicrando::musicRandoEnabled, 0x1 );
         hudConsole->addOption( page, "No Enemy BGM?: ", &musicrando::enemyBgmDisabled, 0x1 );
         hudConsole->addOption( page, "Item Fanfares: ", &musicrando::fanfareRandoEnabled, 0x1 );
+
+        //Key Counts
+        page = hudConsole->addPage( "SK Amounts" );
+        hudConsole->addOption( page, "Forest Temple:", &forestKeyCount, 0xFF );
+        hudConsole->addOption( page, "Goron Mines:", &minesKeyCount, 0xFF );
+        hudConsole->addOption( page, "Lakebed Temple:", &lakebedKeyCount, 0xFF );
+        hudConsole->addOption( page, "Arbiter Ground:", &arbitersKeyCount, 0xFF );
+        hudConsole->addOption( page, "Snowpeak Ruins:", &snowpeakKeyCount, 0xFF );
+        hudConsole->addOption( page, "Temple of Time:", &totKeyCount, 0xFF );
+        hudConsole->addOption( page, "City in Sky:", &cityKeyCount, 0xFF );
+        hudConsole->addOption( page, "PoT:", &palaceKeyCount, 0xFF );
+        hudConsole->addOption( page, "Hyrule Castle:", &castleKeyCount, 0xFF );
+        hudConsole->addOption( page, "Faron Woods:", &faronKeyCount, 0xFF );
+        hudConsole->addOption( page, "Bulblin Camp:", &bulblinKeyCount, 0xFF );
 
         // Print
         hudConsole->draw();
@@ -1138,6 +1163,80 @@ hudConsole->addWatch(page, "throw:", &throwResult, 'x', WatchInterpretation::_u1
         if ( gameInfo.nextStageVars.nextSpawnPoint != 0xFF )
         {
             lastGoodSpawn = gameInfo.nextStageVars.nextSpawnPoint;
+        }
+
+        forestKeyCount = gameInfo.scratchPad.allAreaNodes.Forest_Temple.nbKeys;
+        minesKeyCount = gameInfo.scratchPad.allAreaNodes.Goron_Mines.nbKeys;
+        lakebedKeyCount = gameInfo.scratchPad.allAreaNodes.Lakebed_Temple.nbKeys;
+        arbitersKeyCount = gameInfo.scratchPad.allAreaNodes.Arbiters_Grounds.nbKeys;
+        snowpeakKeyCount = gameInfo.scratchPad.allAreaNodes.Snowpeak_Ruins.nbKeys;
+        totKeyCount = gameInfo.scratchPad.allAreaNodes.Temple_of_Time.nbKeys;
+        cityKeyCount = gameInfo.scratchPad.allAreaNodes.City_in_the_Sky.nbKeys;
+        palaceKeyCount = gameInfo.scratchPad.allAreaNodes.Palace_of_Twilight.nbKeys;
+        castleKeyCount = gameInfo.scratchPad.allAreaNodes.Hyrule_Castle.nbKeys;
+        faronKeyCount = gameInfo.scratchPad.allAreaNodes.Faron.nbKeys;
+        bulblinKeyCount = gameInfo.scratchPad.allAreaNodes.Gerudo_Desert.nbKeys;
+        
+
+        if (chestRandomizer->isKeyRegion())
+        {
+            u8 stageID = chestRandomizer->getStageID();
+            u8 localKeys = gameInfo.localAreaNodes.nbKeys;
+            switch (stageID)
+            {
+                case stage::stageIDs::Forest_Temple:
+                {
+                    forestKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Goron_Mines:
+                {
+                    minesKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Lakebed_Temple:
+                {
+                    lakebedKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Arbiters_Grounds:
+                {
+                    arbitersKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Temple_of_Time:
+                {
+                    totKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::City_in_the_Sky:
+                {
+                    cityKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Palace_of_Twilight:
+                {
+                    palaceKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Hyrule_Castle:
+                {
+                    castleKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Faron_Woods:
+                {
+                    faronKeyCount = localKeys;
+                    break;
+                }
+                case stage::stageIDs::Bulblin_Camp:
+                {
+                    bulblinKeyCount = localKeys;
+                    break;
+                }
+                default:
+                    return;
+            }
         }
 
         if ( gameInfo.ColorPtr != nullptr )

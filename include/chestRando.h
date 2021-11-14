@@ -89,6 +89,11 @@ namespace mod
         bool isStageSpecial();
 
         bool isStageTOD();
+        
+        u8 getStageID();
+        bool isKeyRegion();
+
+        
 
        private:
         /**
@@ -120,6 +125,10 @@ namespace mod
          *excludes hyrule castle since boss doesn't spawn heart container
          */
         bool isStageADungeon( char* stage );
+
+        
+
+        
 
         /**
          * checks if item given is a type of bombs

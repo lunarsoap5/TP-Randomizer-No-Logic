@@ -28,7 +28,7 @@ namespace mod
             // Find the option struct
             u8 optionIndex = numOptions[page];
 
-            if ( optionIndex < 10 )
+            if ( optionIndex < 11 )
             {
                 strcpy( options[page][optionIndex].Title, title );
                 options[page][optionIndex].Target = target;
@@ -204,7 +204,14 @@ namespace mod
             }
         }
 
-        for ( i = i; i < 11; i++ )
+        u8 lineWatch = 11;
+        if (selectedPage == 11)
+        {
+            i = 12;
+            lineWatch = 12;
+        }
+
+        for ( i = i; i < lineWatch; i++ )
         {
             console->consoleLine[i].line[0] = '\0';
         }
@@ -212,6 +219,7 @@ namespace mod
         for ( i = i; ( i - 11 ) < numWatches[selectedPage]; i++ )
         {
             u8 watchIndex = i - 11;
+
             // Print the watch to this line
             Watch w = watches[selectedPage][watchIndex];
 
