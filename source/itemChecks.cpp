@@ -6,7 +6,7 @@
 
 namespace mod::item
 {
-    ItemCheck checks[503] = {
+    ItemCheck checks[] = {
         /* 0 */ { 0x3F,
                   1,
                   stage::allStages[65],
