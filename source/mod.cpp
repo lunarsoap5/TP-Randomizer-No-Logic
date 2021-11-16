@@ -1204,6 +1204,11 @@ hudConsole->addWatch(page, "throw:", &throwResult, 'x', WatchInterpretation::_u1
                     arbitersKeyCount = localKeys;
                     break;
                 }
+                case stage::stageIDs::Snowpeak_Ruins:
+                {
+                    snowpeakKeyCount = localKeys;
+                    break;
+                }
                 case stage::stageIDs::Temple_of_Time:
                 {
                     totKeyCount = localKeys;
