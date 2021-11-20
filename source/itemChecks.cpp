@@ -6,7 +6,7 @@
 
 namespace mod::item
 {
-    ItemCheck checks[] = {
+    ItemCheck checks[503] = {
         /* 0 */ { 0x3F,
                   1,
                   stage::allStages[65],
@@ -4583,6 +4583,19 @@ namespace mod::item
           -13022.520508,
           -3.070827,
           -14673.488281,
+          nullptr,
+          nullptr },
+        /* 352 */
+        { 0xf3,
+          4,
+          stage::allStages[58],
+          13,
+          0xFF,
+          0xFF,
+          0b000000000000000000000,
+          -93334.218750,
+          -5725.979980,
+          44504.023438,
           nullptr,
           nullptr },
         /* 353 */

@@ -309,6 +309,10 @@ namespace mod
                     result = true;
                 }
                 break;
+            
+            case items::Item::Gate_Keys:
+                result = true;
+                break;
         }
 
         return result;
